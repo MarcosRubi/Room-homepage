@@ -1,0 +1,340 @@
+:root {
+  --Dark-Gray: hsl(0, 0%, 63%);
+  --Black: hsl(0, 0%, 0%);
+  --White: hsl(0, 0%, 100%);
+  --Very-Dark-Gray: hsl(0, 0%, 27%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12px;
+  font-family: "League Spartan", sans-serif;
+  color: var(--Very-Dark-Gray);
+}
+
+a {
+  text-decoration: none;
+  color: var(--Very-Dark-Gray);
+  font-weight: 700;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--Black);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  color: var(--Dark-Gray);
+  line-height: 1.5;
+  text-wrap: balance;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  height: 100px;
+  transition: all 0.3s ease-in-out;
+}
+.main-header.sticky {
+  background-color: var(--White);
+  height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.main-header.sticky .btn,
+.main-header.sticky .logo a {
+  color: var(--Black);
+}
+.main-header .btn,
+.main-header .logo a {
+  color: var(--White);
+}
+.main-header > div {
+  height: inherit;
+}
+.main-header .menu {
+  position: absolute;
+  height: 40px;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  background-color: var(--White);
+  transition: all 0.3s linear;
+}
+.main-header .menu nav {
+  height: 100%;
+}
+.main-header .menu a {
+  padding: 0.5rem 1rem;
+}
+.main-header .menu.active {
+  opacity: 1;
+  height: inherit;
+  visibility: visible;
+}
+.main-header .logo {
+  flex-grow: 1;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+}
+.main-header .logo:hover {
+  transform: scale(1.05);
+}
+
+.hero-slider li {
+  min-width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: 0.3s ease-in-out opacity;
+}
+.hero-slider li.active {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+.hero-slider li img {
+  width: 100%;
+}
+.hero-slider .controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.hero-slider .controls .btn {
+  background-color: var(--Black);
+  position: relative;
+  overflow: hidden;
+}
+.hero-slider .controls .btn svg {
+  position: relative;
+  z-index: 10;
+}
+.hero-slider .controls .btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  background-color: var(--Very-Dark-Gray);
+  transition: all 0.2s ease-in-out;
+}
+.hero-slider .controls .btn:hover::after {
+  transform: scale(100);
+}
+
+.shop {
+  padding: 2rem 0;
+}
+.shop .btn {
+  letter-spacing: 10px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 1rem 1rem 1rem 0;
+  transition: all 0.3s linear;
+  display: inline-block;
+  position: relative;
+}
+.shop .btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 2px;
+  width: 50%;
+  opacity: 0;
+  transform: translate(-50%, -0.5rem);
+  background: var(--Black);
+  border-radius: 5rem;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.shop .btn:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+.shop .btn span {
+  padding-right: 1rem;
+}
+
+.about-our {
+  padding: 2rem 0;
+}
+
+.attribution {
+  text-align: center;
+  padding: 1rem 0;
+}
+.attribution a {
+  position: relative;
+}
+.attribution a::after {
+  transform: translate(-50%, 0rem);
+  background: var(--Black);
+}
+.attribution a:hover::after {
+  width: 100%;
+}
+
+@media (width > 767px) {
+  .main-header.sticky .menu a {
+    color: var(--Black);
+    position: relative;
+  }
+  .main-header.sticky .menu a::after {
+    background: var(--Black);
+  }
+  .main-header > div {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    justify-content: flex-start;
+    gap: 4rem;
+  }
+  .main-header .btn-menu {
+    display: none;
+  }
+  .main-header .menu {
+    position: relative;
+    top: 0;
+    transform: translateY(0);
+    width: auto;
+    background-color: transparent;
+    opacity: 1;
+    font-size: 1rem;
+    visibility: visible;
+  }
+  .main-header .menu a {
+    color: var(--White);
+    position: relative;
+  }
+  .main-header .logo {
+    order: -1;
+    text-align: start;
+    max-width: fit-content;
+    padding: 1rem;
+  }
+  .main-header .menu a::after,
+  footer a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    width: 10%;
+    opacity: 0;
+    transform: translate(-50%, -0.25rem);
+    background: var(--White);
+    border-radius: 5rem;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .main-header .menu a:hover::after,
+  footer a:hover::after {
+    width: 50%;
+    opacity: 1;
+  }
+}
+@media (width > 1023px) {
+  main {
+    display: grid;
+    grid-template-areas: "slider slider slider slider slider  shop shop shop" "dark dark dark  about about about light light";
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .hero-slider {
+    grid-area: slider;
+  }
+  .hero-slider .controls {
+    right: -7.75rem;
+  }
+  .hero-slider ul, .hero-slider img, .hero-slider li.active {
+    height: 100%;
+  }
+  .shop {
+    grid-area: shop;
+    padding: 2rem 2rem 4rem 2rem;
+  }
+  .about-our {
+    grid-area: about;
+    padding: 2rem;
+  }
+  .dark-image {
+    grid-area: dark;
+  }
+  .light-image {
+    grid-area: light;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

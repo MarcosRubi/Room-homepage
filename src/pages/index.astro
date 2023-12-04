@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HeroSlider from "../components/HeroSlider.astro";
+import Shop from "../components/Shop.astro";
+import AboutOur from "../components/AboutOur.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Frontend Mentor | Room homepage">
+	<Header/>
+	<main>
+		<HeroSlider/>
+		<Shop/>
+		<section class="dark-image flex justify-center">
+			<img src="/images/image-about-dark.jpg" alt="Image about dark" />
+		</section>
+		<AboutOur/>
+		<section class="light-image flex justify-center">
+			<img src="/images/image-about-light.jpg" alt="Image about light" />
+		</section>
+	</main>
+	<Footer/>
+</Layout>
